@@ -2,7 +2,7 @@
   "name": "Our Shared Calendar",
   "short_name": "Our Calendar",
   "description": "Shared calendar for couples",
-  "start_url": "/",
+  "start_url": "https://rgh4061.github.io/shared-calendar/?source=pwa",
   "display": "standalone",
   "background_color": "#667eea",
   "theme_color": "#667eea",
