@@ -420,14 +420,15 @@ function subscribeToCalendar() {
 }
 
 // Register Service Worker for PWA
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/shared-calendar/service-worker.js', { scope: '/shared-calendar/' })
-            .then(registration => {
-                console.log('ServiceWorker registered');
-            })
-            .catch(err => {
-                console.log('ServiceWorker registration failed: ', err);
-            });
-    });
-}
+// Temporarily disabled to fix iOS Add to Home Screen issues
+// if ('serviceWorker' in navigator) {
+//     window.addEventListener('load', () => {
+//         navigator.serviceWorker.register('/shared-calendar/service-worker.js', { scope: '/shared-calendar/' })
+//             .then(registration => {
+//                 console.log('ServiceWorker registered');
+//             })
+//             .catch(err => {
+//                 console.log('ServiceWorker registration failed: ', err);
+//             });
+//     });
+// }
