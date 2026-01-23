@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Clear Service Worker</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background: #5568d3;
+        }
+        #status {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clear Calendar Cache</h1>
+    <p>Click the button below to clear all cached data and service workers.</p>
+
+    <button onclick="clearEverything()">Clear All Cache</button>
+
+    <div id="status"></div>
+
+    <script>
+        async function clearEverything() {
+            const statusDiv = document.getElementById('status');
+            statusDiv.innerHTML = 'Clearing...';
+
+            try {
+                // Unregister all service workers
+                if ('serviceWorker' in navigator) {
+                    const registrations = await navigator.serviceWorker.getRegistrations();
+                    for (let registration of registrations) {
+                        await registration.unregister();
+                    }
+                    statusDiv.innerHTML += '<br>✓ Service workers unregistered';
+                }
+
+                // Clear all caches
+                if ('caches' in window) {
+                    const cacheNames = await caches.keys();
+                    for (let cacheName of cacheNames) {
+                        await caches.delete(cacheName);
+                    }
+                    statusDiv.innerHTML += '<br>✓ All caches cleared';
+                }
+
+                // Clear localStorage
+                localStorage.clear();
+                statusDiv.innerHTML += '<br>✓ Local storage cleared';
+
+                statusDiv.innerHTML += '<br><br><strong>All cleared! Close this page and reload the calendar.</strong>';
+            } catch (error) {
+                statusDiv.innerHTML = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
