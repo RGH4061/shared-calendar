@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Our Calendar">
+    <meta name="theme-color" content="#667eea">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="manifest" href="manifest.json">
+    <title>Our Shared Calendar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📅 Our Shared Calendar</h1>
+            <div class="header-buttons">
+                <button id="prevMonth" class="nav-btn">‹</button>
+                <h2 id="currentMonth"></h2>
+                <button id="nextMonth" class="nav-btn">›</button>
+            </div>
+            <div class="actions">
+                <button id="addEventBtn" class="primary-btn">+ Add Event</button>
+                <button id="subscribeBtn" class="secondary-btn">📱 Subscribe to Calendar</button>
+                <button id="exportBtn" class="secondary-btn">📥 Download ICS</button>
+            </div>
+            <div id="syncStatus" class="sync-status"></div>
+        </header>
+
+        <div class="calendar" id="calendar"></div>
+
+        <!-- Event Modal -->
+        <div id="eventModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle">Add Event</h2>
+                <form id="eventForm">
+                    <input type="hidden" id="eventId">
+
+                    <label for="eventTitle">Event Title *</label>
+                    <input type="text" id="eventTitle" required>
+
+                    <label for="eventDate">Date *</label>
+                    <input type="date" id="eventDate" required>
+
+                    <label for="eventTime">Time</label>
+                    <input type="time" id="eventTime">
+
+                    <label for="eventDescription">Description</label>
+                    <textarea id="eventDescription" rows="3"></textarea>
+
+                    <label for="eventColor">Color</label>
+                    <select id="eventColor">
+                        <option value="#4472C4">Blue</option>
+                        <option value="#70AD47">Green</option>
+                        <option value="#FFC000">Yellow</option>
+                        <option value="#ED7D31">Orange</option>
+                        <option value="#C55A11">Red</option>
+                        <option value="#9966CC">Purple</option>
+                    </select>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="primary-btn">Save Event</button>
+                        <button type="button" id="deleteEventBtn" class="delete-btn" style="display: none;">Delete</button>
+                        <button type="button" class="secondary-btn" id="cancelBtn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Event Details Modal -->
+        <div id="eventDetailsModal" class="modal">
+            <div class="modal-content">
+                <span class="close details-close">&times;</span>
+                <div id="eventDetails"></div>
+                <div class="form-buttons">
+                    <button id="editEventBtn" class="primary-btn">Edit</button>
+                    <button class="secondary-btn details-close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
