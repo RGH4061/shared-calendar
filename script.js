@@ -422,7 +422,7 @@ function subscribeToCalendar() {
 // Register Service Worker for PWA
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js')
+        navigator.serviceWorker.register('/shared-calendar/service-worker.js', { scope: '/shared-calendar/' })
             .then(registration => {
                 console.log('ServiceWorker registered');
             })
