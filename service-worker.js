@@ -1,10 +1,10 @@
-const CACHE_NAME = 'shared-calendar-v1';
+const CACHE_NAME = 'shared-calendar-v2';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/styles.css',
-  '/script.js',
-  '/manifest.json'
+  '/shared-calendar/',
+  '/shared-calendar/index.html',
+  '/shared-calendar/styles.css',
+  '/shared-calendar/script.js',
+  '/shared-calendar/manifest.json'
 ];
 
 // Install service worker and cache files
