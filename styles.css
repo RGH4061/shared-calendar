@@ -338,6 +338,23 @@ form select:focus {
     border-radius: 5px;
     margin-top: 15px;
 }
+/* Date + Time side-by-side row */
+.date-time-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+/* Category badge in event details */
+.event-category-badge {
+    display: inline-block;
+    color: white;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
