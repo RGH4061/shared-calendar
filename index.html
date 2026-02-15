@@ -42,24 +42,33 @@
                     <label for="eventTitle">Event Title *</label>
                     <input type="text" id="eventTitle" required>
 
-                    <label for="eventDate">Date *</label>
-                    <input type="date" id="eventDate" required>
+                    <label for="eventCategory">Category *</label>
+                    <select id="eventCategory" required>
+                        <option value="Date Night">💜 Date Night</option>
+                        <option value="Joint Social Event">💙 Joint Social Event</option>
+                        <option value="Travel">💚 Travel</option>
+                        <option value="Darcey Event">🧡 Darcey Event</option>
+                        <option value="Rupert Event">❤️ Rupert Event</option>
+                        <option value="Sydney Staying">💛 Sydney Staying</option>
+                    </select>
 
-                    <label for="eventTime">Time</label>
-                    <input type="time" id="eventTime">
+                    <label>Start *</label>
+                    <div class="date-time-row">
+                        <input type="date" id="eventStartDate" required>
+                        <input type="time" id="eventStartTime">
+                    </div>
+
+                    <label>End</label>
+                    <div class="date-time-row">
+                        <input type="date" id="eventEndDate">
+                        <input type="time" id="eventEndTime">
+                    </div>
+
+                    <label for="eventLocation">Location</label>
+                    <input type="text" id="eventLocation" placeholder="e.g. Restaurant name, address">
 
                     <label for="eventDescription">Description</label>
                     <textarea id="eventDescription" rows="3"></textarea>
-
-                    <label for="eventColor">Color</label>
-                    <select id="eventColor">
-                        <option value="#4472C4">Blue</option>
-                        <option value="#70AD47">Green</option>
-                        <option value="#FFC000">Yellow</option>
-                        <option value="#ED7D31">Orange</option>
-                        <option value="#C55A11">Red</option>
-                        <option value="#9966CC">Purple</option>
-                    </select>
 
                     <div class="form-buttons">
                         <button type="submit" class="primary-btn">Save Event</button>
